@@ -1,0 +1,36 @@
+<?php
+/**
+ * Plugin Name: Ignore block name in search
+ * Description: Modifies the native search to ignore block editor comments
+ * Version: 1.0
+ * Author: Torsten Landsiedel
+ * License: GPL2
+ */
+
+/*
+Based on "Search Ignore HTML Tags" by Pramod Sivadas
+wordpress.org/plugins/wp-search-ignore-html-tags/
+*/
+
+/**
+ * Modify search query to ignore the search term in HTML comments.
+ *
+ * @param string   $where The WHERE clause of the query.
+ * @param WP_Query $query The WP_Query instance (passed by reference).
+ *
+ * @return string The modified WHERE clause.
+ */
+function tl_update_search_query( $where, $query ) {
+	if ( ! is_search() || ! $query->is_main_query() ) {
+		return $where;
+	}
+
+	global $wpdb;
+	$search_query = get_search_query();
+	$search_query = $wpdb->esc_like( $search_query );
+
+	$where .= " AND {$wpdb->posts}.post_content NOT REGEXP '<!--.*$search_query.*-->' ";
+
+	return $where;
+}
+add_filter( 'posts_where', 'tl_update_search_query', 10, 2 );
