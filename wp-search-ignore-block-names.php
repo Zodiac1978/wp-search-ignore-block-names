@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ignore block name in search
  * Description: Modifies the native search to ignore block editor comments
- * Version: 1.0
+ * Version: 1.0.0
  * Author: Torsten Landsiedel
  * License: GPL2
  */
@@ -20,7 +20,7 @@ wordpress.org/plugins/wp-search-ignore-html-tags/
  *
  * @return string The modified WHERE clause.
  */
-function tl_update_search_query( $where, $query ) {
+function wp_search_ignore_block_names_update_search_query( $where, $query ) {
 	if ( ! is_search() || ! $query->is_main_query() ) {
 		return $where;
 	}
