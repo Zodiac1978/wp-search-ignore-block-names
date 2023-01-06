@@ -30,7 +30,7 @@ Based on [Search Ignore HTML Tags](https://wordpress.org/plugins/wp-search-ignor
 
 This plugin has no settings page, it modifies the internal search to ignore HTML comments in the post markup. 
 
-Imagine a law development blog using a syntaxhighlighting block. If you search on this blog to find posts with the term "syntaxhighlighting" you will get every post with code and not only those post which are really about syntax highlighting.
+Imagine a development blog using a syntaxhighlighting block. If you search on this blog to find posts with the term "syntaxhighlighting" you will get every post with code and not only those post which are really about syntax highlighting.
 
 = Can I help you? =
 
