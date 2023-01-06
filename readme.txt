@@ -16,8 +16,7 @@ This plugin modifies the native wordpress search function to ignore block names 
 
 With this plugin activated the unexpected search results are fixed which are reported in [#3739](https://github.com/WordPress/gutenberg/issues/3739)
 
-Based on "Search Ignore HTML Tags" by Pramod Sivadas
-https://wordpress.org/plugins/wp-search-ignore-html-tags/
+Based on [Search Ignore HTML Tags](https://wordpress.org/plugins/wp-search-ignore-html-tags/) by [Pramod Sivadas](https://profiles.wordpress.org/pramodsivadas/)
 
 == Installation ==
 
