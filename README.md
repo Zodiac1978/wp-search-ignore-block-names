@@ -24,9 +24,7 @@ Please open a [new issue](https://github.com/Zodiac1978/wp-search-ignore-block-n
 
 ## Thanks
 
-Based on "Search Ignore HTML Tags" by [Pramod Sivadas](https://profiles.wordpress.org/pramodsivadas/)
-
-https://wordpress.org/plugins/wp-search-ignore-html-tags/
+Based on [Search Ignore HTML Tags](https://wordpress.org/plugins/wp-search-ignore-html-tags/) by [Pramod Sivadas](https://profiles.wordpress.org/pramodsivadas/)
 
 ## Changelog
 
