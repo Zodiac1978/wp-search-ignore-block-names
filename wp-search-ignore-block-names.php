@@ -9,7 +9,8 @@
 
 /*
 Based on "Search Ignore HTML Tags" by Pramod Sivadas
-wordpress.org/plugins/wp-search-ignore-html-tags/
+https://wordpress.org/plugins/wp-search-ignore-html-tags/
+Thank you!
 */
 
 /**
@@ -33,4 +34,4 @@ function wp_search_ignore_block_names_update_search_query( $where, $query ) {
 
 	return $where;
 }
-add_filter( 'posts_where', 'tl_update_search_query', 10, 2 );
+add_filter( 'posts_where', 'wp_search_ignore_block_names_update_search_query', 10, 2 );
