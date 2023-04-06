@@ -115,8 +115,8 @@ class IgnoreBlockNameInSearch {
 			if ( is_plugin_active( plugin_basename( __FILE__ ) ) ) {
 				deactivate_plugins( plugin_basename( __FILE__ ) );
 				add_action( 'admin_notices', array( $this, 'disabled_notice' ) );
-				if ( isset( $_GET['activate'] ) ) {
-					unset( $_GET['activate'] );
+				if ( isset( $_GET['activate'] ) ) { // phpcs:ignore warning
+					unset( $_GET['activate'] ); // phpcs:ignore warning
 				}
 			}
 		}
@@ -132,7 +132,7 @@ class IgnoreBlockNameInSearch {
 		$error_message .= '<p><strong>' . esc_html__( 'Plugin deactivated!', 'ignore-block-name-in-search' ) . '</strong> ';
 		$error_message .= esc_html__( 'The version of your database software does not support REGEXP_REPLACE. Please upgrade to MySQL 8.0.4+ or MariaDB 10.0.5+.', 'ignore-block-name-in-search' );
 		$error_message .= '</p></div>';
-		echo $error_message;
+		echo $error_message; // phpcs:ignore error
 	}
 
 	/**
@@ -145,7 +145,7 @@ class IgnoreBlockNameInSearch {
 
 		$mysql_server_type = $wpdb->db_server_info();
 
-		$this->mysql_server_version = $wpdb->get_var( 'SELECT VERSION()' );
+		$this->mysql_server_version = $wpdb->get_var( 'SELECT VERSION()' ); // phpcs:ignore warning
 
 		if ( stristr( $mysql_server_type, 'mariadb' ) !== false ) {
 			$this->is_mariadb             = true;
