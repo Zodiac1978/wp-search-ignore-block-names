@@ -43,6 +43,10 @@ It is building up an index from your content and is therefore solving the underl
 Thanks for asking! Yes, I'm very interested in edge cases and imcompatibilities (other plugins or server configurations).
 Please report on the [Github page](https://github.com/Zodiac1978/wp-search-ignore-block-names/issues).
 
+= Thanks =
+
+Props for helping to fix this go to [espiat](https://profiles.wordpress.org/espiat), [l1nuxjedi](https://profiles.wordpress.org/l1nuxjedi), [mustafauysal](https://profiles.wordpress.org/mustafauysal/), [ravishaheshan](https://profiles.wordpress.org/ravishaheshan), and [websupporter](https://profiles.wordpress.org/websupporter/)!
+
 == Screenshots ==
 
 n/a

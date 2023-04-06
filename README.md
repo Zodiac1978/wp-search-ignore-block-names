@@ -18,19 +18,19 @@ Imagine a development blog using a syntaxhighlighting block. If you search on th
 
 ### I need more features!
 
-This plugin just wants to solve this particular problem without too much overhead. If you need more customizations to your search, then please have a look at [Relevanssi](https://wordpress.org/plugins/relevanssi/)
+This plugin just wants to solve this particular problem without too much overhead. If you need more customizations to your search, then please have a look at [Relevanssi](https://wordpress.org/plugins/relevanssi/).
 
 It is building up an index from your content and is therefore solving the underlying issue in another way with much more ways to customize it. And it will be even faster.
 
 ### Can I help you?
 
-Thanks for asking! Yes, I'm very interested in edge cases and imcompatibilities (other plugins or server configurations).
+Thanks for asking! Yes, I'm very interested in edge cases and incompatibilities (other plugins or server configurations).
 Please open a [new issue](https://github.com/Zodiac1978/wp-search-ignore-block-names/issues) for this.
 
 
 ## Thanks
 
-Props for helping to fix this go to [ravishaheshan](https://profiles.wordpress.org/ravishaheshan), [espiat](https://profiles.wordpress.org/espiat) and [l1nuxjedi](https://profiles.wordpress.org/l1nuxjedi)!
+Props for helping to fix this go to [espiat](https://profiles.wordpress.org/espiat), [l1nuxjedi](https://profiles.wordpress.org/l1nuxjedi), [mustafauysal](https://profiles.wordpress.org/mustafauysal/), [ravishaheshan](https://profiles.wordpress.org/ravishaheshan), and [websupporter](https://profiles.wordpress.org/websupporter/)!
 
 ## Changelog
 
