@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Plugin Name: Ignore block name in search
  * Description: Modifies the native search to ignore block editor markup
@@ -17,7 +18,8 @@
 /**
  * Ignore block name in search class
  */
-class IgnoreBlockNameInSearch {
+class IgnoreBlockNameInSearch
+{
 
 	public $is_mariadb = false;
 
@@ -30,19 +32,19 @@ class IgnoreBlockNameInSearch {
 	/**
 	 * Constructor function for TLNormalizer.
 	 */
-	public function __construct() {
-		add_action( 'admin_init', array( $this, 'check_version' ) );
+	public function __construct()
+	{
+		add_action('admin_init', array($this, 'check_version'));
 
 		// Don't run anything else in the plugin, if we're on an incompatible database.
-		if ( ! $this->compatible_version() ) {
+		if (!$this->compatible_version()) {
 			return;
 		}
 
-		add_action( 'init', array( $this, 'init' ), 0 );
+		add_action('init', array($this, 'init'), 0);
 
 		// Adding function to all posts_search filter (fires less often than posts_where).
-		add_filter( 'posts_search', array( $this, 'wp_search_ignore_block_names_update_search_query' ), 10, 2 );
-
+		add_filter('posts_search', array($this, 'wp_search_ignore_block_names_update_search_query'), 10, 2);
 	}
 
 	/**
@@ -50,7 +52,8 @@ class IgnoreBlockNameInSearch {
 	 *
 	 * @since  1.1.0
 	 */
-	public function init() {
+	public function init()
+	{
 		// Set up localisation.
 		$this->load_plugin_textdomain();
 	}
@@ -60,9 +63,10 @@ class IgnoreBlockNameInSearch {
 	 *
 	 * @since 1.1.0
 	 */
-	private function load_plugin_textdomain() {
-		if ( is_admin() ) {
-			load_plugin_textdomain( 'ignore-block-name-in-search', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+	private function load_plugin_textdomain()
+	{
+		if (is_admin()) {
+			load_plugin_textdomain('ignore-block-name-in-search', false, dirname(plugin_basename(__FILE__)) . '/languages');
 		}
 	}
 
@@ -71,10 +75,12 @@ class IgnoreBlockNameInSearch {
 	 *
 	 * @return void
 	 */
-	public function activation_check() {
-		if ( ! $this->compatible_version() ) {
-			deactivate_plugins( plugin_basename( __FILE__ ) );
-			wp_die( esc_html__( 'The version of your database software does not support REGEXP_REPLACE. Please upgrade to MySQL 8.0.4+ or MariaDB 10.0.5+.', 'ignore-block-name-in-search' ) );
+	public static function activation_check()
+	{
+		$instance = new self();
+		if (!$instance->compatible_version()) {
+			deactivate_plugins(plugin_basename(__FILE__));
+			wp_die(esc_html__('The version of your database software does not support REGEXP_REPLACE. Please upgrade to MySQL 8.0.4+ or MariaDB 10.0.5+.', 'ignore-block-name-in-search'));
 		}
 	}
 
@@ -83,13 +89,14 @@ class IgnoreBlockNameInSearch {
 	 *
 	 * @return void
 	 */
-	private function check_version() {
-		if ( ! $this->compatible_version() ) {
-			if ( is_plugin_active( plugin_basename( __FILE__ ) ) ) {
-				deactivate_plugins( plugin_basename( __FILE__ ) );
-				add_action( 'admin_notices', array( $this, 'disabled_notice' ) );
-				if ( isset( $_GET['activate'] ) ) {
-					unset( $_GET['activate'] );
+	public function check_version()
+	{
+		if (!$this->compatible_version()) {
+			if (is_plugin_active(plugin_basename(__FILE__))) {
+				deactivate_plugins(plugin_basename(__FILE__));
+				add_action('admin_notices', array($this, 'disabled_notice'));
+				if (isset($_GET['activate'])) {
+					unset($_GET['activate']);
 				}
 			}
 		}
@@ -100,10 +107,11 @@ class IgnoreBlockNameInSearch {
 	 *
 	 * @return void
 	 */
-	private function disabled_notice() {
+	private function disabled_notice()
+	{
 		$error_message  = '<div class="notice notice-error is-dismissible">';
-		$error_message .= '<p><strong>' . esc_html__( 'Plugin deactivated!', 'ignore-block-name-in-search' ) . '</strong> ';
-		$error_message .= esc_html__( 'The version of your database software does not support REGEXP_REPLACE. Please upgrade to MySQL 8.0.4+ or MariaDB 10.0.5+.', 'ignore-block-name-in-search' );
+		$error_message .= '<p><strong>' . esc_html__('Plugin deactivated!', 'ignore-block-name-in-search') . '</strong> ';
+		$error_message .= esc_html__('The version of your database software does not support REGEXP_REPLACE. Please upgrade to MySQL 8.0.4+ or MariaDB 10.0.5+.', 'ignore-block-name-in-search');
 		$error_message .= '</p></div>';
 		echo $error_message;
 	}
@@ -113,19 +121,20 @@ class IgnoreBlockNameInSearch {
 	 *
 	 * @global wpdb $wpdb WordPress database abstraction object.
 	 */
-	private function prepare_sql_data() {
+	private function prepare_sql_data()
+	{
 		global $wpdb;
 
 		$mysql_server_type = $wpdb->db_server_info();
 
-		$this->mysql_server_version = $wpdb->get_var( 'SELECT VERSION()' );
+		$this->mysql_server_version = $wpdb->get_var('SELECT VERSION()');
 
-		if ( stristr( $mysql_server_type, 'mariadb' ) ) {
+		if (stristr($mysql_server_type, 'mariadb')) {
 			$this->is_mariadb             = true;
 			$this->mysql_required_version = $this->mariadb_required_version;
 		}
 
-		$this->is_supporting_regexp_replace = version_compare( $this->mysql_required_version, $this->mysql_server_version, '<=' );
+		$this->is_supporting_regexp_replace = version_compare($this->mysql_required_version, $this->mysql_server_version, '<=');
 	}
 
 	/**
@@ -133,16 +142,16 @@ class IgnoreBlockNameInSearch {
 	 *
 	 * @return bool
 	 */
-	private function compatible_version() {
+	private function compatible_version()
+	{
 
 		// Get data.
-		if ( ! $this->mysql_server_version ) {
+		if (!$this->mysql_server_version) {
 			$this->prepare_sql_data();
 		}
 
 		// Return result.
 		return $this->is_supporting_regexp_replace;
-
 	}
 
 
@@ -154,24 +163,23 @@ class IgnoreBlockNameInSearch {
 	 *
 	 * @return string The modified WHERE clause.
 	 */
-	public function wp_search_ignore_block_names_update_search_query( $where, $query ) {
-		if ( ! is_search() || ! $query->is_main_query() ) {
+	public function wp_search_ignore_block_names_update_search_query($where, $query)
+	{
+		if (!is_search() || !$query->is_main_query()) {
 			return $where;
 		}
 
 		global $wpdb;
 		$search_query = get_search_query();
-		$search_query = $wpdb->esc_like( $search_query );
+		$search_query = $wpdb->esc_like($search_query);
 
 		$where .= " AND REGEXP_REPLACE({$wpdb->posts}.post_content, '<.+?>', '') LIKE '%{$search_query}%'";
 
 		return $where;
 	}
-
-
 }
 
 global $ignore_block_name_in_search;
 $ignore_block_name_in_search = new IgnoreBlockNameInSearch();
 
-register_activation_hook( __FILE__, array( 'IgnoreBlockNameInSearch', $ignore_block_name_in_search->activation_check() ) );
+register_activation_hook(__FILE__, array('IgnoreBlockNameInSearch', 'activation_check'));
