@@ -83,7 +83,7 @@ class IgnoreBlockNameInSearch {
 	 *
 	 * @return void
 	 */
-	private function check_version() {
+	public function check_version() {
 		if ( ! $this->compatible_version() ) {
 			if ( is_plugin_active( plugin_basename( __FILE__ ) ) ) {
 				deactivate_plugins( plugin_basename( __FILE__ ) );
@@ -100,7 +100,7 @@ class IgnoreBlockNameInSearch {
 	 *
 	 * @return void
 	 */
-	private function disabled_notice() {
+	public function disabled_notice() {
 		$error_message  = '<div class="notice notice-error is-dismissible">';
 		$error_message .= '<p><strong>' . esc_html__( 'Plugin deactivated!', 'ignore-block-name-in-search' ) . '</strong> ';
 		$error_message .= esc_html__( 'The version of your database software does not support REGEXP_REPLACE. Please upgrade to MySQL 8.0.4+ or MariaDB 10.0.5+.', 'ignore-block-name-in-search' );
