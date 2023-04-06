@@ -19,16 +19,43 @@
  */
 class IgnoreBlockNameInSearch {
 
+	/**
+	 * Is the database MariaDB or not?
+	 *
+	 * @var bool
+	 */
 	public $is_mariadb = false;
 
+	/**
+	 * Does the database support REGEXP_REPLACE?
+	 *
+	 * @var bool
+	 */
 	private $is_supporting_regexp_replace;
 
-	private $mysql_server_version        = '';
-	private $mysql_required_version      = '8.0.4';
-	private $mariadb_required_version    = '10.0.5';
+	/**
+	 * Variable for storing the actual database version number
+	 *
+	 * @var string
+	 */
+	private $mysql_server_version = '';
 
 	/**
-	 * Constructor function for TLNormalizer.
+	 * Required MySQL version
+	 *
+	 * @var string
+	 */
+	private $mysql_required_version = '8.0.4';
+
+	/**
+	 * Required Maria DB version
+	 *
+	 * @var string
+	 */
+	private $mariadb_required_version = '10.0.5';
+
+	/**
+	 * Constructor function for IgnoreBlockNameInSearch.
 	 */
 	public function __construct() {
 		add_action( 'admin_init', array( $this, 'check_version' ) );
@@ -120,7 +147,7 @@ class IgnoreBlockNameInSearch {
 
 		$this->mysql_server_version = $wpdb->get_var( 'SELECT VERSION()' );
 
-		if ( stristr( $mysql_server_type, 'mariadb' ) ) {
+		if ( stristr( $mysql_server_type, 'mariadb' ) !== false ) {
 			$this->is_mariadb             = true;
 			$this->mysql_required_version = $this->mariadb_required_version;
 		}
