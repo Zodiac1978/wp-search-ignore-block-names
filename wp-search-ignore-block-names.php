@@ -174,4 +174,4 @@ class IgnoreBlockNameInSearch {
 global $ignore_block_name_in_search;
 $ignore_block_name_in_search = new IgnoreBlockNameInSearch();
 
-register_activation_hook( __FILE__, array( 'IgnoreBlockNameInSearch', $ignore_block_name_in_search->activation_check() ) );
+register_activation_hook( __FILE__, array( $ignore_block_name_in_search, 'activation_check' ) );
