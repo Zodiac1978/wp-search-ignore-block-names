@@ -1,0 +1,9 @@
+# Directories
+/.git
+/.github
+/.wordpress-org
+
+# Files
+/.distignore
+/.gitattributes
+/README.md
