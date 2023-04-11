@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ignore block name in search
  * Description: Modifies the native search to ignore block editor markup
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author: Torsten Landsiedel
  * Author URI: https://torstenlandsiedel.de
  * License: GPL2

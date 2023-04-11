@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: search, better search, gutenberg, editor
 Requires at least: 5.0.0
 Tested up to: 6.2
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,8 +15,6 @@ Modifies the native search to ignore block editor comments and HTML markup
 This plugin modifies the native wordpress search function to ignore block names in post and page content.
 
 With this plugin activated the unexpected search results are fixed which are reported in [#3739](https://github.com/WordPress/gutenberg/issues/3739) and in [#56294](https://core.trac.wordpress.org/ticket/56294)
-
-Based on [Search Ignore HTML Tags](https://wordpress.org/plugins/wp-search-ignore-html-tags/) by [Pramod Sivadas](https://profiles.wordpress.org/pramodsivadas/)
 
 == Installation ==
 
@@ -52,6 +50,10 @@ Props for helping to fix this go to [espiat](https://profiles.wordpress.org/espi
 n/a
 
 == Changelog ==
+
+= 1.1.1 =
+* Added back link to error message, if REGEXP_REPLACE is not supported
+* Fixed some typos
 
 = 1.1.0 =
 * Changed approach to remove the markup (now requires MySQL 8.0.4+ or MariaDB 10.0.5+)

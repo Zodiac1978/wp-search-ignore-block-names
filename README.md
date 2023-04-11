@@ -34,6 +34,11 @@ Props for helping to fix this go to [espiat](https://profiles.wordpress.org/espi
 
 ## Changelog
 
+### 1.1.1
+
+* Added back link to error message, if REGEXP_REPLACE is not supported
+* Fixed some typos
+
 ### 1.1.0
 
 * Changed approach to remove the markup (now requires MySQL 8.0.4+ or MariaDB 10.0.5+)
