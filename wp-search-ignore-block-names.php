@@ -101,7 +101,13 @@ class IgnoreBlockNameInSearch {
 	public function activation_check() {
 		if ( ! $this->compatible_version() ) {
 			deactivate_plugins( plugin_basename( __FILE__ ) );
-			wp_die( esc_html__( 'The version of your database software does not support REGEXP_REPLACE. Please upgrade to MySQL 8.0.4+ or MariaDB 10.0.5+.', 'ignore-block-name-in-search' ) );
+			wp_die(
+				esc_html__( 'The version of your database software does not support REGEXP_REPLACE. Please upgrade to MySQL 8.0.4+ or MariaDB 10.0.5+.', 'ignore-block-name-in-search' ),
+				'',
+				array(
+					'back_link' => true,
+				)
+			);
 		}
 	}
 
