@@ -1,12 +1,14 @@
-# Ignore block name in search
+# Ignore HTML and shortcodes in search
 
-Modifies the native search to ignore block editor comments and HTML markup
+Modifies the native search to ignore HTML markup (block editor comments) and shortcodes
 
 ## Why?
 
-This plugin modifies the native wordpress search function to ignore block names in post and page content.
+This plugin modifies the native wordpress search feature to ignore HTML markup (like block names) and shortcodes in your content.
 
 With this plugin activated the unexpected search results are fixed which are reported in [#3739](WordPress/gutenberg#3739) and in [#56294](https://core.trac.wordpress.org/ticket/56294)
+
+**Works only for MySQL 8.0.4+ and MariaDB 10.0.5+**
 
 ## Frequently Asked Questions
 
@@ -16,9 +18,13 @@ This plugin has no settings page, it modifies the internal search to ignore HTML
 
 Imagine a development blog using a syntaxhighlighting block. If you search on this blog to find posts with the term "syntaxhighlighting" you will get every post with code and not only those post which are really about syntax highlighting.
 
+### What about the alt/title attribute?
+
+At the moment this is not searched for anymore with this plugin. Maybe I can specifically allow this in a future version of the plugin.
+
 ### I need more features!
 
-This plugin just wants to solve this particular problem without too much overhead. If you need more customizations to your search, then please have a look at [Relevanssi](https://wordpress.org/plugins/relevanssi/).
+This plugin just wants to solve this particular problem without too much overhead. If you need more customizations to your search, then please have a look at [Relevanssi](https://wordpress.org/plugins/relevanssi/) or [Better Search](https://wordpress.org/plugins/better-search/).
 
 It is building up an index from your content and is therefore solving the underlying issue in another way with much more ways to customize it. And it will be even faster.
 
@@ -33,6 +39,11 @@ Please open a [new issue](https://github.com/Zodiac1978/wp-search-ignore-block-n
 Props for helping to fix this go to [espiat](https://profiles.wordpress.org/espiat), [l1nuxjedi](https://profiles.wordpress.org/l1nuxjedi), [mustafauysal](https://profiles.wordpress.org/mustafauysal/), [ravishaheshan](https://profiles.wordpress.org/ravishaheshan), and [websupporter](https://profiles.wordpress.org/websupporter/)!
 
 ## Changelog
+
+### 1.2.0
+* Fixed broken search for title and excerpt
+* Ignore shortcodes additionally to markup
+* Rename plugin
 
 ### 1.1.1
 

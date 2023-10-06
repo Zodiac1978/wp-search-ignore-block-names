@@ -51,7 +51,7 @@ n/a
 
 == Changelog ==
 
-= 1.1.2 =
+= 1.2.0 =
 * Fixed broken search for title and excerpt
 * Ignore shortcodes additionally to markup
 * Rename plugin
