@@ -26,7 +26,7 @@ At the moment this is not searched for anymore with this plugin. Maybe I can spe
 
 This plugin just wants to solve this particular problem without too much overhead. If you need more customizations to your search, then please have a look at [Relevanssi](https://wordpress.org/plugins/relevanssi/) or [Better Search](https://wordpress.org/plugins/better-search/).
 
-It is building up an index from your content and is therefore solving the underlying issue in another way with much more ways to customize it. And it will be even faster.
+These plugins are building up an index from your content and are therefore solving the underlying issue in another way with much more ways to customize it. And they will be even faster.
 
 ### Can I help you?
 
