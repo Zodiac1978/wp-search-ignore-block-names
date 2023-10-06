@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: Ignore block name in search
- * Description: Modifies the native search to ignore block editor markup
- * Version: 1.1.1
+ * Plugin Name: Ignore HTML and shortcodes in search
+ * Description: Modifies the native search to ignore markup and shortcodes
+ * Version: 1.2.0
  * Author: Torsten Landsiedel
  * Author URI: https://torstenlandsiedel.de
  * License: GPL2

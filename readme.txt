@@ -1,14 +1,14 @@
-=== Ignore block name in search ===
+=== Ignore HTML and shortcodes in search ===
 Contributors: zodiac1978
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LCH9UVV7RKDFY
 Tags: search, better search, gutenberg, editor
 Requires at least: 5.0.0
 Tested up to: 6.3
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Modifies the native search to ignore block editor comments and HTML markup
+Modifies the native search to ignore HTML markup (block editor comments) and shortcodes
 
 == Description ==
 
@@ -50,6 +50,11 @@ Props for helping to fix this go to [espiat](https://profiles.wordpress.org/espi
 n/a
 
 == Changelog ==
+
+= 1.1.2 =
+* Fixed broken search for title and excerpt
+* Ignore shortcodes additionally to markup
+* Rename plugin
 
 = 1.1.1 =
 * Added back link to error message, if REGEXP_REPLACE is not supported
