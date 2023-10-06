@@ -196,7 +196,7 @@ class IgnoreBlockNameInSearch {
 		$search_query = get_search_query();
 		$search_query = $wpdb->esc_like( $search_query );
 
-		$where .= " AND REGEXP_REPLACE({$wpdb->posts}.post_content, '<.+?>', '') LIKE '%{$search_query}%'";
+		$where .= " AND (REGEXP_REPLACE(REGEXP_REPLACE({$wpdb->posts}.post_content, '\\\\[.+?\\]', ''), '<.+?>', '') LIKE '%{$search_query}%' OR {$wpdb->posts}.post_title LIKE '%{$search_query}%' OR {$wpdb->posts}.post_excerpt LIKE '%{$search_query}%')";
 
 		return $where;
 	}
