@@ -64,32 +64,9 @@ class IgnoreBlockNameInSearch {
 			return;
 		}
 
-		add_action( 'init', array( $this, 'init' ), 0 );
-
 		// Adding function to all posts_search filter (fires less often than posts_where).
 		add_filter( 'posts_search', array( $this, 'wp_search_ignore_block_names_update_search_query' ), 10, 2 );
 
-	}
-
-	/**
-	 * Init when WordPress Initialises.
-	 *
-	 * @since  1.1.0
-	 */
-	public function init() {
-		// Set up localisation.
-		$this->load_plugin_textdomain();
-	}
-
-	/**
-	 * Load plugin textdomain.
-	 *
-	 * @since 1.1.0
-	 */
-	private function load_plugin_textdomain() {
-		if ( is_admin() ) {
-			load_plugin_textdomain( 'ignore-block-name-in-search', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
-		}
 	}
 
 	/**
@@ -120,9 +97,6 @@ class IgnoreBlockNameInSearch {
 			if ( is_plugin_active( plugin_basename( __FILE__ ) ) ) {
 				deactivate_plugins( plugin_basename( __FILE__ ) );
 				add_action( 'admin_notices', array( $this, 'disabled_notice' ) );
-				if ( isset( $_GET['activate'] ) ) { // phpcs:ignore warning
-					unset( $_GET['activate'] ); // phpcs:ignore warning
-				}
 			}
 		}
 	}
