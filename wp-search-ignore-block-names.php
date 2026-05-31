@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ignore HTML and shortcodes in search
  * Description: Modifies the native search to ignore markup and shortcodes
- * Version: 1.2.0
+ * Version: 1.3.0
  * Author: Torsten Landsiedel
  * Author URI: https://torstenlandsiedel.de
  * License: GPL2
@@ -12,6 +12,11 @@
  *
  * @package WordPress\ignore-block-name-in-search
  */
+
+// If called without WordPress, exit.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Ignore block name in search class

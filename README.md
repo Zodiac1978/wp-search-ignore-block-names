@@ -40,6 +40,9 @@ Props for helping to fix this go to [espiat](https://profiles.wordpress.org/espi
 
 ## Changelog
 
+### 1.3.0
+* to be filled
+
 ### 1.2.0
 * Fixed broken search for title and excerpt
 * Ignore shortcodes additionally to markup

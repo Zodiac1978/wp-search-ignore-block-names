@@ -3,8 +3,8 @@ Contributors: zodiac1978
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LCH9UVV7RKDFY
 Tags: search, better search, gutenberg, editor
 Requires at least: 5.0.0
-Tested up to: 6.3
-Stable tag: 1.2.0
+Tested up to: 7.0
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,9 @@ Props for helping to fix this go to [espiat](https://profiles.wordpress.org/espi
 n/a
 
 == Changelog ==
+
+= 1.3.0 =
+* to be filled
 
 = 1.2.0 =
 * Fixed broken search for title and excerpt
