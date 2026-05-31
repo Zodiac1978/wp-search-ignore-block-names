@@ -137,7 +137,16 @@ class IgnoreBlockNameInSearch {
 		$error_message .= '<p><strong>' . esc_html__( 'Plugin deactivated!', 'ignore-block-name-in-search' ) . '</strong> ';
 		$error_message .= esc_html__( 'The version of your database software does not support REGEXP_REPLACE. Please upgrade to MySQL 8.0.4+ or MariaDB 10.0.5+.', 'ignore-block-name-in-search' );
 		$error_message .= '</p></div>';
-		echo $error_message; // phpcs:ignore error
+		echo wp_kses(
+			$error_message,
+			array(
+				'div'    => array(
+					'class' => true,
+				),
+				'p'      => array(),
+				'strong' => array(),
+			)
+		);
 	}
 
 	/**
