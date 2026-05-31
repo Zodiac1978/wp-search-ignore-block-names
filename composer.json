@@ -1,0 +1,23 @@
+{
+	"name": "zodiac1978/wp-search-ignore-block-names",
+	"description": "Modifies the native WordPress search to ignore HTML markup and shortcodes.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Torsten Landsiedel",
+			"homepage": "https://torstenlandsiedel.de"
+		}
+	],
+	"require-dev": {
+		"phpstan/phpstan": "^2.1",
+		"php-stubs/wordpress-stubs": "^6.8",
+		"szepeviktor/phpstan-wordpress": "^2.0"
+	},
+	"scripts": {
+		"analyse": "phpstan analyse"
+	},
+	"config": {
+		"sort-packages": true
+	}
+}
