@@ -138,7 +138,7 @@ class IgnoreBlockNameInSearch {
 
 		$mysql_server_type = $wpdb->db_server_info();
 
-		$this->mysql_server_version = $wpdb->get_var( 'SELECT VERSION()' ); // phpcs:ignore warning
+		$this->mysql_server_version = $wpdb->db_version();
 
 		if ( stristr( $mysql_server_type, 'mariadb' ) !== false ) {
 			$this->is_mariadb             = true;
