@@ -9,7 +9,6 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Plugin URI: https://github.com/Zodiac1978/wp-search-ignore-block-names
  * Text Domain: ignore-block-name-in-search
- * Domain Path: /languages
  *
  * @package WordPress\ignore-block-name-in-search
  */
