@@ -50,3 +50,8 @@ jobs:
       uses: wordpress/plugin-check-action@v1
       with:
         wp-version: latest
+        slug: ignore-block-name-in-search
+        exclude-directories: .git,.github,.wordpress-org
+        exclude-files: |
+          .distignore
+          .gitattributes
