@@ -2,11 +2,50 @@ name: CI
 
 on: [push, pull_request]
 
+permissions:
+  contents: read
+
 jobs:
-  build-test:
+  phpstan:
+    name: PHPStan
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v6
-    - uses: ramsey/composer-install@v4
+    - uses: ramsey/composer-install@4.0.0
     - uses: dingo-d/phpstan-wp-action@v2
+
+  spelling:
+    name: Typos
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+    - uses: crate-ci/typos@v1
+
+  coding-standards:
+    name: WordPress Coding Standards
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+    - name: WPCS check
+      uses: 10up/wpcs-action@stable
+      with:
+        standard: WordPress
+        paths: wp-search-ignore-block-names.php
+
+  plugin-check:
+    name: Plugin Check
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+    - name: Setup WP Env
+      run: npm install -g @wordpress/env
+    - name: Start WP Env
+      run: wp-env start
+    - name: Run Plugin Check
+      uses: wordpress/plugin-check-action@v1
+      with:
+        wp-version: latest
