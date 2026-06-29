@@ -41,7 +41,7 @@ Props for helping to fix this go to [espiat](https://profiles.wordpress.org/espi
 ## Changelog
 
 ### 1.3.0
-* Limit filtering to HTML comments to avoid hiding visible content with malformed markup
+* Limit filtering to HTML comments to avoid hiding visible content when markup contains unescaped `<` or `>` characters
 * Keep shortcodes and HTML attributes searchable
 
 ### 1.2.0

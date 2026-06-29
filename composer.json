@@ -1,6 +1,6 @@
 {
 	"name": "zodiac1978/wp-search-ignore-block-names",
-	"description": "Modifies the native WordPress search to ignore HTML markup and shortcodes.",
+	"description": "Modifies the native WordPress search to ignore block editor comments.",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",
 	"authors": [
