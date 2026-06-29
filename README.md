@@ -1,5 +1,7 @@
 # Ignore block names in search
 
+[![Build status](https://github.com/Zodiac1978/wp-search-ignore-block-names/actions/workflows/ci.yml/badge.svg)](https://github.com/Zodiac1978/wp-search-ignore-block-names/actions/workflows/ci.yml) [![Current plugin version](https://img.shields.io/wordpress/plugin/v/ignore-block-name-in-search.svg)](https://wordpress.org/plugins/ignore-block-name-in-search/) [![Number of downloads](https://img.shields.io/wordpress/plugin/dt/ignore-block-name-in-search.svg)](https://wordpress.org/plugins/ignore-block-name-in-search/advanced/) [![Number of active installs](https://img.shields.io/wordpress/plugin/installs/ignore-block-name-in-search.svg)](https://wordpress.org/plugins/ignore-block-name-in-search/advanced/) [![WordPress plugin rating](https://img.shields.io/wordpress/plugin/r/ignore-block-name-in-search.svg)](https://wordpress.org/plugins/ignore-block-name-in-search/#reviews) [![Donate with PayPal](https://img.shields.io/badge/PayPal-Donate-yellow.svg)](https://www.paypal.com/paypalme/zodiac1978)
+
 Modifies the native search to ignore block editor comments.
 
 ## Why?
