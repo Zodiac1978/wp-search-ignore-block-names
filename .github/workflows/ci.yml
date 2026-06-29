@@ -34,7 +34,7 @@ jobs:
       with:
         standard: WordPress
         paths: wp-search-ignore-block-names.php
-        extra_args: --exclude=WordPress.Files.FileName.InvalidClassFileName
+        extra_args: --exclude=WordPress.Files.FileName
 
   plugin-check:
     name: Plugin Check
