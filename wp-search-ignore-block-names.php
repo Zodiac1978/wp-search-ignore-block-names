@@ -71,7 +71,6 @@ class IgnoreBlockNameInSearch {
 
 		// Adding function to all posts_search filter (fires less often than posts_where).
 		add_filter( 'posts_search', array( $this, 'wp_search_ignore_block_names_update_search_query' ), 10, 2 );
-
 	}
 
 	/**
@@ -162,9 +161,7 @@ class IgnoreBlockNameInSearch {
 
 		// Return result.
 		return $this->is_supporting_regexp_replace;
-
 	}
-
 
 	/**
 	 * Modify search query to ignore the search term in HTML comments.
@@ -191,8 +188,6 @@ class IgnoreBlockNameInSearch {
 
 		return $where;
 	}
-
-
 }
 
 global $ignore_block_name_in_search;
