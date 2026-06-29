@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name: Ignore HTML and shortcodes in search
- * Description: Modifies the native search to ignore markup and shortcodes
+ * Plugin Name: Ignore block names in search
+ * Description: Modifies the native search to ignore block editor comments.
  * Version: 1.3.0
  * Author: Torsten Landsiedel
  * Author URI: https://torstenlandsiedel.de
@@ -180,10 +180,14 @@ class IgnoreBlockNameInSearch {
 		}
 
 		global $wpdb;
-		$search_query = get_search_query();
-		$search_query = $wpdb->esc_like( $search_query );
+		$search_query = '%' . $wpdb->esc_like( get_search_query() ) . '%';
 
-		$where .= " AND (REGEXP_REPLACE(REGEXP_REPLACE({$wpdb->posts}.post_content, '\\\\[.+?\\]', ''), '<.+?>', '') LIKE '%{$search_query}%' OR {$wpdb->posts}.post_title LIKE '%{$search_query}%' OR {$wpdb->posts}.post_excerpt LIKE '%{$search_query}%')";
+		$where .= $wpdb->prepare(
+			" AND (REGEXP_REPLACE({$wpdb->posts}.post_content, '<!--.+?-->', '') LIKE %s OR {$wpdb->posts}.post_title LIKE %s OR {$wpdb->posts}.post_excerpt LIKE %s)",
+			$search_query,
+			$search_query,
+			$search_query
+		);
 
 		return $where;
 	}

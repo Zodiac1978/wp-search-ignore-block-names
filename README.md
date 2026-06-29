@@ -1,10 +1,10 @@
-# Ignore HTML and shortcodes in search
+# Ignore block names in search
 
-Modifies the native search to ignore HTML markup (block editor comments) and shortcodes
+Modifies the native search to ignore block editor comments.
 
 ## Why?
 
-This plugin modifies the native wordpress search feature to ignore HTML markup (like block names) and shortcodes in your content.
+This plugin modifies the native WordPress search feature to ignore block editor comments in your content.
 
 With this plugin activated the unexpected search results are fixed which are reported in [#3739](WordPress/gutenberg#3739) and in [#56294](https://core.trac.wordpress.org/ticket/56294)
 
@@ -14,13 +14,13 @@ With this plugin activated the unexpected search results are fixed which are rep
 
 ### I don't see any changes.
 
-This plugin has no settings page, it modifies the internal search to ignore HTML and HTML comments in the post markup. 
+This plugin has no settings page. It modifies the internal search to ignore HTML comments in the post markup.
 
 Imagine a development blog using a syntaxhighlighting block. If you search on this blog to find posts with the term "syntaxhighlighting" you will get every post with code and not only those post which are really about syntax highlighting.
 
-### What about the alt/title attribute?
+### What about HTML attributes, captions, and shortcodes?
 
-At the moment this is not searched for anymore with this plugin. Maybe I can specifically allow this in a future version of the plugin.
+The plugin no longer strips HTML tags or shortcodes. Visible content, HTML attributes, captions, filenames, and shortcodes remain searchable.
 
 ### I need more features!
 
@@ -41,7 +41,8 @@ Props for helping to fix this go to [espiat](https://profiles.wordpress.org/espi
 ## Changelog
 
 ### 1.3.0
-* to be filled
+* Limit filtering to HTML comments to avoid hiding visible content with malformed markup
+* Keep shortcodes and HTML attributes searchable
 
 ### 1.2.0
 * Fixed broken search for title and excerpt

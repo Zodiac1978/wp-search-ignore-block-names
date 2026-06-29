@@ -1,4 +1,4 @@
-=== Ignore HTML and shortcodes in search ===
+=== Ignore block names in search ===
 Contributors: zodiac1978
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LCH9UVV7RKDFY
 Tags: search, better search, gutenberg, editor
@@ -8,11 +8,11 @@ Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Modifies the native search to ignore HTML markup (block editor comments) and shortcodes
+Modifies the native search to ignore block editor comments.
 
 == Description ==
 
-This plugin modifies the native wordpress search function to ignore block names in post and page content.
+This plugin modifies the native WordPress search function to ignore block names in post and page content.
 
 With this plugin activated the unexpected search results are fixed which are reported in [#3739](https://github.com/WordPress/gutenberg/issues/3739) and in [#56294](https://core.trac.wordpress.org/ticket/56294)
 
@@ -28,13 +28,13 @@ With this plugin activated the unexpected search results are fixed which are rep
 
 = I don't see any changes. =
 
-This plugin has no settings page, it modifies the internal search to ignore HTML comments in the post markup. 
+This plugin has no settings page. It modifies the internal search to ignore HTML comments in the post markup.
 
 Imagine a development blog using a syntaxhighlighting block. If you search on this blog to find posts with the term "syntaxhighlighting" you will get every post with code and not only those post which are really about syntax highlighting.
 
-= What about the alt/title attribute? =
+= What about HTML attributes, captions, and shortcodes? =
 
-At the moment this is not searched for anymore with this plugin. Maybe I can specifically allow this in a future version of the plugin.
+The plugin no longer strips HTML tags or shortcodes. Visible content, HTML attributes, captions, filenames, and shortcodes remain searchable.
 
 = I need more features! =
 
@@ -58,7 +58,8 @@ n/a
 == Changelog ==
 
 = 1.3.0 =
-* to be filled
+* Limit filtering to HTML comments to avoid hiding visible content with malformed markup
+* Keep shortcodes and HTML attributes searchable
 
 = 1.2.0 =
 * Fixed broken search for title and excerpt
