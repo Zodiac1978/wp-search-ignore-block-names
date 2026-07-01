@@ -8,7 +8,7 @@ Modifies the native search to ignore block editor metadata.
 
 This plugin modifies the native WordPress search feature to ignore block editor comments and generated block class names in your content.
 
-With this plugin activated the unexpected search results are fixed which are reported in [#3739](WordPress/gutenberg#3739) and in [#56294](https://core.trac.wordpress.org/ticket/56294)
+With this plugin activated the unexpected search results are fixed which are reported in [#3739](https://github.com/WordPress/gutenberg/issues/3739) and in [#56294](https://core.trac.wordpress.org/ticket/56294)
 
 **Works only for MySQL 8.0.4+ and MariaDB 10.0.5+**
 
