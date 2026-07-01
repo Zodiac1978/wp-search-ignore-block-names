@@ -2,8 +2,10 @@
 /.git
 /.github
 /.wordpress-org
+/tests
 
 # Files
 /.distignore
 /.gitattributes
+/.wp-env.json
 /README.md

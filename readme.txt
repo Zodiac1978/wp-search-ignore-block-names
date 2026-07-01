@@ -4,11 +4,11 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: search, better search, gutenberg, editor
 Requires at least: 5.0.0
 Tested up to: 7.0
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Modifies the native search to ignore block editor comments.
+Modifies the native search to ignore block editor metadata.
 
 == Description ==
 
@@ -28,7 +28,7 @@ With this plugin activated the unexpected search results are fixed which are rep
 
 = I don't see any changes. =
 
-This plugin has no settings page. It modifies the internal search to ignore HTML comments in the post markup.
+This plugin has no settings page. It modifies the internal search to ignore HTML comments and generated `wp-block-*` class names in the post markup.
 
 Imagine a development blog using a syntaxhighlighting block. If you search on this blog to find posts with the term "syntaxhighlighting" you will get every post with code and not only those post which are really about syntax highlighting.
 
@@ -57,8 +57,11 @@ n/a
 
 == Changelog ==
 
+= 1.3.1 =
+* Ignore generated `wp-block-*` class names in addition to block editor comments
+
 = 1.3.0 =
-* Limit filtering to HTML comments to avoid hiding visible content when markup contains unescaped `<` or `>` characters
+* Limit filtering to block editor comments to avoid hiding visible content when markup contains unescaped `<` or `>` characters
 * Keep shortcodes and HTML attributes searchable
 
 = 1.2.0 =

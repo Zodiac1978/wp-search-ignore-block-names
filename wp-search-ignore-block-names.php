@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name: Ignore block names in search
- * Description: Modifies the native search to ignore block editor comments.
- * Version: 1.3.0
+ * Description: Modifies the native search to ignore block editor metadata.
+ * Version: 1.3.1
  * Author: Torsten Landsiedel
  * Author URI: https://torstenlandsiedel.de
  * License: GPL2
@@ -180,7 +180,7 @@ class IgnoreBlockNameInSearch {
 		$search_query = '%' . $wpdb->esc_like( get_search_query() ) . '%';
 
 		$where .= $wpdb->prepare(
-			" AND (REGEXP_REPLACE({$wpdb->posts}.post_content, '<!--.+?-->', '') LIKE %s OR {$wpdb->posts}.post_title LIKE %s OR {$wpdb->posts}.post_excerpt LIKE %s)",
+			" AND (REGEXP_REPLACE(REGEXP_REPLACE({$wpdb->posts}.post_content, '<!--.+?-->', ''), 'wp-block-[[:alnum:]_-]+', '') LIKE %s OR {$wpdb->posts}.post_title LIKE %s OR {$wpdb->posts}.post_excerpt LIKE %s)",
 			$search_query,
 			$search_query,
 			$search_query

@@ -36,6 +36,21 @@ jobs:
         paths: wp-search-ignore-block-names.php
         extra_args: --exclude=WordPress.Files.FileName
 
+  search-tests:
+    name: Search Integration Tests
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+    - name: Setup WP Env
+      run: npm install -g @wordpress/env
+    - name: Start WP Env
+      run: wp-env start
+    - name: Activate plugin
+      run: wp-env run cli wp plugin activate wp-search-ignore-block-names
+    - name: Run search smoke tests
+      run: wp-env run cli wp eval-file wp-content/plugins/wp-search-ignore-block-names/tests/search-smoke.php
+
   plugin-check:
     name: Plugin Check
     runs-on: ubuntu-latest
@@ -51,7 +66,8 @@ jobs:
       with:
         wp-version: latest
         slug: ignore-block-name-in-search
-        exclude-directories: .git,.github,.wordpress-org
+        exclude-directories: .git,.github,.wordpress-org,tests
         exclude-files: |
           .distignore
           .gitattributes
+          .wp-env.json

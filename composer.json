@@ -1,6 +1,6 @@
 {
 	"name": "zodiac1978/wp-search-ignore-block-names",
-	"description": "Modifies the native WordPress search to ignore block editor comments.",
+	"description": "Modifies the native WordPress search to ignore block editor metadata.",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",
 	"authors": [

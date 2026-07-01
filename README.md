@@ -2,11 +2,11 @@
 
 [![Build status](https://github.com/Zodiac1978/wp-search-ignore-block-names/actions/workflows/ci.yml/badge.svg)](https://github.com/Zodiac1978/wp-search-ignore-block-names/actions/workflows/ci.yml) [![Current plugin version](https://img.shields.io/wordpress/plugin/v/ignore-block-name-in-search.svg)](https://wordpress.org/plugins/ignore-block-name-in-search/) [![Number of downloads](https://img.shields.io/wordpress/plugin/dt/ignore-block-name-in-search.svg)](https://wordpress.org/plugins/ignore-block-name-in-search/advanced/) [![Number of active installs](https://img.shields.io/wordpress/plugin/installs/ignore-block-name-in-search.svg)](https://wordpress.org/plugins/ignore-block-name-in-search/advanced/) [![WordPress plugin rating](https://img.shields.io/wordpress/plugin/r/ignore-block-name-in-search.svg)](https://wordpress.org/plugins/ignore-block-name-in-search/#reviews) [![Donate with PayPal](https://img.shields.io/badge/PayPal-Donate-yellow.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LCH9UVV7RKDFY)
 
-Modifies the native search to ignore block editor comments.
+Modifies the native search to ignore block editor metadata.
 
 ## Why?
 
-This plugin modifies the native WordPress search feature to ignore block editor comments in your content.
+This plugin modifies the native WordPress search feature to ignore block editor comments and generated block class names in your content.
 
 With this plugin activated the unexpected search results are fixed which are reported in [#3739](WordPress/gutenberg#3739) and in [#56294](https://core.trac.wordpress.org/ticket/56294)
 
@@ -16,7 +16,7 @@ With this plugin activated the unexpected search results are fixed which are rep
 
 ### I don't see any changes.
 
-This plugin has no settings page. It modifies the internal search to ignore HTML comments in the post markup.
+This plugin has no settings page. It modifies the internal search to ignore HTML comments and generated `wp-block-*` class names in the post markup.
 
 Imagine a development blog using a syntaxhighlighting block. If you search on this blog to find posts with the term "syntaxhighlighting" you will get every post with code and not only those post which are really about syntax highlighting.
 
@@ -42,8 +42,11 @@ Props for helping to fix this go to [espiat](https://profiles.wordpress.org/espi
 
 ## Changelog
 
+### 1.3.1
+* Ignore generated `wp-block-*` class names in addition to block editor comments
+
 ### 1.3.0
-* Limit filtering to HTML comments to avoid hiding visible content when markup contains unescaped `<` or `>` characters
+* Limit filtering to block editor comments to avoid hiding visible content when markup contains unescaped `<` or `>` characters
 * Keep shortcodes and HTML attributes searchable
 
 ### 1.2.0
